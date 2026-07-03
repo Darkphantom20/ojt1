@@ -1,0 +1,132 @@
+/* Coordinator Dashboard Page Styles */
+
+/* ===== DESKTOP DEFAULT – no height restrictions ===== */
+.content-wrapper,
+.content-wrapper .content {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* ===== MOBILE-ONLY IMPROVEMENTS (no desktop impact) ===== */
+@media (max-width: 575.98px) {
+  /* Keep footer visible */
+  .content-wrapper {
+    max-height: calc(100vh - 140px) !important;
+    overflow: hidden !important;
+    padding-bottom: 10px !important;
+  }
+
+  .content-wrapper .content {
+    max-height: calc(100vh - 200px) !important;
+    overflow-y: auto !important;
+    padding-right: 6px;
+    padding-bottom: 1rem !important;
+  }
+
+  /* Status boxes: two per row, fixed height, centered content */
+  .row .col-lg-3.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 4px;
+    padding-right: 4px;
+    margin-bottom: 0.6rem;
+  }
+
+  .enhanced-small-box {
+    height: 80px !important;
+    /* fixed height */
+    padding: 0.5rem 0.6rem !important;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* vertical center */
+  }
+
+  .enhanced-small-box .inner {
+    padding-right: 50px !important;
+    /* space for icon */
+    flex: 1;
+  }
+
+  .enhanced-small-box .inner h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.1rem;
+    line-height: 1.2;
+  }
+
+  .enhanced-small-box .inner p {
+    font-size: 0.65rem !important;
+    margin-bottom: 0;
+    line-height: 1.2;
+  }
+
+  .enhanced-small-box .icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.8rem !important;
+    opacity: 0.6;
+    line-height: 1;
+  }
+
+  /* Table: horizontal scroll + compact styles */
+  .table-responsive {
+    overflow-x: auto !important;
+    overflow-y: auto !important;
+    max-height: 240px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table {
+    font-size: 0.7rem;
+    min-width: 500px;
+    /* force scroll on small screens */
+  }
+
+  .table td,
+  .table th {
+    padding: 0.2rem 0.2rem;
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .progress {
+    height: 14px !important;
+  }
+
+  .progress-bar {
+    font-size: 0.55rem;
+    line-height: 14px;
+  }
+
+  .btn-xs {
+    font-size: 0.6rem !important;
+    padding: 0.1rem 0.3rem !important;
+  }
+
+  /* Card header */
+  .card-header .card-title {
+    font-size: 0.9rem !important;
+  }
+
+  .card-tools .input-group {
+    width: 120px !important;
+  }
+
+  .card-tools input {
+    font-size: 0.7rem !important;
+    height: 26px !important;
+  }
+
+  /* Chart */
+  #coordinatorOverviewChart {
+    height: 140px !important;
+  }
+
+  /* Header */
+  .content-header h1 {
+    font-size: 1.2rem !important;
+  }
+}

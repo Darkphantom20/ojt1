@@ -1,0 +1,9 @@
+{
+    "admin": {
+        "username": "admin",
+        "password_hash": "$2y$10$cdI9tw8NueSw9l46WH3P3OdThbDzIB6a1QJoVz9.bsNrirn\/Q\/o6K",
+        "name": "Administrator",
+        "email": "admin@example.com",
+        "avatar": ""
+    }
+}

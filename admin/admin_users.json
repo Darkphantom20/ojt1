@@ -1,0 +1,8 @@
+{
+    "admin": {
+        "name": "Ian Panglima Padilla",
+        "email": "admin@example.com",
+        "avatar": "assets\/img\/users\/user_ian_1773924983.png",
+        "password_hash": "$2y$10$xDYF8Bo34wAy46bEATrjTO9fcRCw0BGQcQfQ3xdVgrJ6fmwEs1Cfe"
+    }
+}

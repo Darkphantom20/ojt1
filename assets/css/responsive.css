@@ -1,0 +1,295 @@
+/* ============================================
+   OJT System - Comprehensive Responsive Stylesheet
+   This stylesheet enhances responsiveness across all devices
+   ============================================ */
+
+/* ============================================
+   BASE RESPONSIVE UTILITIES
+   ============================================ */
+
+/* Ensure images and media are responsive */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Responsive tables */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive > .table {
+    margin-bottom: 0;
+}
+
+table {
+    width: 100%;
+}
+
+/* Responsive containers */
+.container {
+    width: 100%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ============================================
+   TABLET DEVICES (576px - 767px)
+   ============================================ */
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+
+    .container-fluid {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+
+    /* Improve spacing on tablets */
+    .card {
+        margin-bottom: 1rem;
+    }
+
+    .row {
+        margin-right: -0.5rem;
+        margin-left: -0.5rem;
+    }
+
+    [class*="col-"] {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+}
+
+/* ============================================
+   MEDIUM DEVICES (768px - 991px)
+   ============================================ */
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+    .col-md-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+    .col-md-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+    .col-md-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-md-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+    .col-md-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+    .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-md-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+    .col-md-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+    .col-md-9 { flex: 0 0 75%; max-width: 75%; }
+    .col-md-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+    .col-md-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+    .col-md-12 { flex: 0 0 100%; max-width: 100%; }
+
+    .offset-md-1 { margin-left: 8.333333%; }
+    .offset-md-2 { margin-left: 16.666667%; }
+    .offset-md-3 { margin-left: 25%; }
+    .offset-md-4 { margin-left: 33.333333%; }
+    .offset-md-5 { margin-left: 41.666667%; }
+    .offset-md-6 { margin-left: 50%; }
+
+    /* Sidebar visibility on tablets */
+    .sidebar-mini.sidebar-closed .content-wrapper {
+        margin-left: 50px;
+    }
+
+    /* Form improvements on tablets */
+    .form-row > [class*="col-"] {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* ============================================
+   LARGE DEVICES (992px and up)
+   ============================================ */
+
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .col-lg-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+    .col-lg-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+    .col-lg-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-lg-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+    .col-lg-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+    .col-lg-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-lg-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+    .col-lg-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+    .col-lg-9 { flex: 0 0 75%; max-width: 75%; }
+    .col-lg-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+    .col-lg-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+    .col-lg-12 { flex: 0 0 100%; max-width: 100%; }
+
+    .offset-lg-1 { margin-left: 8.333333%; }
+    .offset-lg-2 { margin-left: 16.666667%; }
+    .offset-lg-3 { margin-left: 25%; }
+    .offset-lg-4 { margin-left: 33.333333%; }
+    .offset-lg-5 { margin-left: 41.666667%; }
+    .offset-lg-6 { margin-left: 50%; }
+}
+
+/* ============================================
+   EXTRA LARGE DEVICES (1200px and up)
+   ============================================ */
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .col-xl-1 { flex: 0 0 8.333333%; max-width: 8.333333%; }
+    .col-xl-2 { flex: 0 0 16.666667%; max-width: 16.666667%; }
+    .col-xl-3 { flex: 0 0 25%; max-width: 25%; }
+    .col-xl-4 { flex: 0 0 33.333333%; max-width: 33.333333%; }
+    .col-xl-5 { flex: 0 0 41.666667%; max-width: 41.666667%; }
+    .col-xl-6 { flex: 0 0 50%; max-width: 50%; }
+    .col-xl-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
+    .col-xl-8 { flex: 0 0 66.666667%; max-width: 66.666667%; }
+    .col-xl-9 { flex: 0 0 75%; max-width: 75%; }
+    .col-xl-10 { flex: 0 0 83.333333%; max-width: 83.333333%; }
+    .col-xl-11 { flex: 0 0 91.666667%; max-width: 91.666667%; }
+    .col-xl-12 { flex: 0 0 100%; max-width: 100%; }
+
+    .offset-xl-1 { margin-left: 8.333333%; }
+    .offset-xl-2 { margin-left: 16.666667%; }
+    .offset-xl-3 { margin-left: 25%; }
+    .offset-xl-4 { margin-left: 33.333333%; }
+    .offset-xl-5 { margin-left: 41.666667%; }
+    .offset-xl-6 { margin-left: 50%; }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+    outline: 2px solid #0d6efd;
+    outline-offset: 2px;
+}
+
+/* Ensure touch targets are at least 44x44px */
+button,
+a.btn,
+.btn,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Improve form accessibility */
+label {
+    cursor: pointer;
+}
+
+/* ============================================
+   PRINT MEDIA
+   ============================================ */
+
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .btn:not(:disabled),
+    a:not(:disabled) {
+        cursor: auto;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .page-break {
+        page-break-after: always;
+    }
+
+    .no-print {
+        display: none !important;
+    }
+
+    .modal {
+        display: none !important;
+    }
+
+    @page {
+        margin: 2cm;
+    }
+}
+
+/* ============================================
+   TABLET AND LARGER DEVICES - HIDE MOBILE NAV (576px+)
+   ============================================ */
+
+@media (min-width: 576px) {
+    body {
+        padding-bottom: 0 !important;
+    }
+
+    .content-wrapper,
+    .main-content,
+    main {
+        padding-bottom: 0 !important;
+    }
+
+}
+
+/* ============================================
+   DARK MODE SUPPORT (if enabled)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    /* This is a placeholder for dark mode support
+       Uncomment and customize when dark mode is needed */
+
+    /* body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+    }
+
+    .card {
+        background-color: #2d2d2d;
+        border-color: #444;
+    } */
+}
+
+/* ============================================
+   HIGH CONTRAST MODE
+   ============================================ */
+
+@media (prefers-contrast: more) {
+    /* Increase contrast for accessibility */
+    body {
+        text-shadow: none;
+    }
+
+    .btn {
+        border-width: 2px;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION SUPPORT
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

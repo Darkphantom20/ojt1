@@ -1,0 +1,111 @@
+{
+    "TC-23-A-00471": {
+        "student_id": "TC-23-A-00471",
+        "password_hash": "$2y$10$cX0YUdPaDBR9Ah0G8ZueCu0c3onQBoFtvKCy\/JKPiNtf\/znepkSH.",
+        "name": "Ian P. Padilla",
+        "email": "student3@gmail.com",
+        "avatar": "assets\/img\/users\/student_ian_dondolongon_padilla_1773997726.png"
+    },
+    "TC-23-A-00472": {
+        "student_id": "TC-23-A-00472",
+        "password_hash": "$2y$10$jpfGWQcdx6nRFUsSpGjBiOAfygPOULaPLceWaxLpdWDQlpH6QIMbO",
+        "name": "Ian P. Padilla",
+        "email": "student4@gmail.com",
+        "avatar": ""
+    },
+    "TC-23-A-00473": {
+        "student_id": "TC-23-A-00473",
+        "password_hash": "$2y$10$MHCFYgTKSu7fvjxekJNgeOZrNmM9NH4\/RXLWzUOgQh7lIRsbwALMy",
+        "name": "yan panglima",
+        "email": "karenppadilla70@gmail.com",
+        "avatar": "assets\/img\/users\/student_yan_panglima_1774000377.png"
+    },
+    "TC-23-A-00476": {
+        "student_id": "TC-23-A-00476",
+        "password_hash": "$2y$10$x2q9SPNkGTNGc1iyjfQz5.P.r7IJRFBcp3BMV2LixoTgxMMLx0q4K",
+        "name": "Neng",
+        "email": "hayna@gmail.com",
+        "avatar": ""
+    },
+    "TC-23-A-00477": {
+        "student_id": "TC-23-A-00477",
+        "password_hash": "$2y$10$3\/FUNChtzxYKCVSggjy44OD2N4FzgF2sdtYSdkngYhxsdvw3XkCMe",
+        "name": "Hayna",
+        "email": "hayna1@gmail.com",
+        "department": "Bachelor of Science in Information Systems",
+        "required_ojt_hours": 480,
+        "avatar": "assets\/img\/users\/student_hayna_1774022866.png"
+    },
+    "TC-23-A-00456": {
+        "student_id": "TC-23-A-00456",
+        "password_hash": "$2y$10$SbqSXpbuabauloHgJoilROSiFyGXdOaaTBvrlXks.q0V2pnv5XzAC",
+        "name": "Ninak",
+        "email": "hayna82@gmail.com",
+        "department": "Bachelor of Science in Business Administration (Financial Management)",
+        "required_ojt_hours": 600,
+        "avatar": ""
+    },
+    "TC-23-A-00457": {
+        "student_id": "TC-23-A-00457",
+        "password_hash": "$2y$10$Cnmw5JduR4XGVf6wvm4B9OKCno7XEMOwkyxtrMGwWM2VAD1YD4CFC",
+        "name": "Nakni",
+        "email": "hayna823@gmail.com",
+        "department": "Bachelor of Science in Business Administration (Financial Management)",
+        "required_ojt_hours": 600,
+        "avatar": ""
+    },
+    "TC-23-A-00458": {
+        "student_id": "TC-23-A-00458",
+        "password_hash": "$2y$10$K8PD1hdP4hbVRrJ163PY\/.QnL\/ebGjLyR5XKMuTFekn\/.oL9PPjIG",
+        "name": "Nakni",
+        "email": "hayna823@gmail.com",
+        "department": "Bachelor of Science in Business Administration (Financial Management)",
+        "required_ojt_hours": 600,
+        "avatar": ""
+    },
+    "TC-23-A-00459": {
+        "student_id": "TC-23-A-00459",
+        "password_hash": "$2y$10$CBNeqXdhkply73bEc\/hTzeUS2bZH5yJjLWfVQviLb4xuMPWV4jxPy",
+        "name": "Nakni",
+        "email": "hayna8238@gmail.com",
+        "department": "School of Criminal Justice (CLAMS)",
+        "required_ojt_hours": 540,
+        "avatar": ""
+    },
+    "TC-23-A-00470": {
+        "student_id": "TC-23-A-00470",
+        "password_hash": "$2y$10$ufJe2rzn0FPwqAvlNneriuvnLtbILAUq1cbn97GFPrvczfJmKVHUe",
+        "name": "Nakni",
+        "email": "hayna838@gmail.com",
+        "department": "BSED Major in Math",
+        "required_ojt_hours": 720,
+        "avatar": ""
+    },
+    "TC-23-A-00479": {
+        "student_id": "TC-23-A-00479",
+        "password_hash": "$2y$10$Meirl2Un\/iXzapaLdxk\/Aeg8o55x8amBhzqKksqXt\/2pwTWeCcs56",
+        "name": "Nakni",
+        "email": "hayna83899@gmail.com",
+        "department": "BEED Major in English",
+        "required_ojt_hours": 720,
+        "avatar": ""
+    },
+    "TC-23-A-00486": {
+        "student_id": "TC-23-A-00486",
+        "password_hash": "$2y$10$amJdzpyZqrMZYQzVWuPfGO3fuoHpWpxf\/Rp2cA8fU3hR8k5Vv67Yy",
+        "name": "Nakni",
+        "email": "hayna838908@gmail.com",
+        "department": "Bachelor of Science in Agricultural Business Engineering",
+        "required_ojt_hours": 240,
+        "avatar": ""
+    },
+    "TC-23-A-00567": {
+        "student_id": "TC-23-A-00567",
+        "password_hash": "$2y$10$5i.7Sv4nc5xo\/hf26mgOfOLD.RhLUhHFVatcHiiUhpsOVLqt4Qnyu",
+        "name": "Ian P. Padilla",
+        "email": "hayna838908@gmail.com",
+        "department": "Bachelor of Science in Human Resource Management",
+        "required_ojt_hours": 600,
+        "avatar": ""
+    }
+}

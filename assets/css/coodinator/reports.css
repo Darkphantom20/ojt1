@@ -1,0 +1,248 @@
+.export-history-card .timeline-item {
+  background: #f8f9fa;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.export-history-card .timeline-item .timeline-header {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+.history-modal .modal-content {
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.history-modal .modal-header {
+  background: linear-gradient(145deg, rgba(9, 81, 146, 0.92), rgba(66, 154, 219, 0.85));
+  border-bottom: none;
+  color: #fff;
+}
+.history-modal .modal-header .close {
+  color: rgba(255,255,255,0.85);
+}
+.export-history-card .card-header {
+  border-bottom: none;
+  padding: 0.85rem 1rem;
+  background: linear-gradient(145deg, rgba(9, 81, 146, 0.92), rgba(66, 154, 219, 0.85));
+  color: #fff;
+}
+.btn-history {
+  background: linear-gradient(145deg, rgba(9, 81, 146, 0.92), rgba(66, 154, 219, 0.85));
+  border-color: rgba(9, 81, 146, 0.92);
+  color: #fff;
+}
+.btn-history:hover {
+  background: linear-gradient(145deg, rgba(7, 65, 117, 0.92), rgba(52, 123, 176, 0.85));
+  border-color: rgba(7, 65, 117, 0.92);
+  color: #fff;
+}
+body.theme-purple .history-modal .modal-header,
+body.theme-purple .export-history-card .card-header,
+body.theme-purple .btn-history {
+  background: linear-gradient(145deg, rgba(107, 45, 156, 0.92), rgba(160, 85, 186, 0.85));
+  border-color: rgba(160, 85, 186, 0.92);
+}
+body.theme-yellow .history-modal .modal-header,
+body.theme-yellow .export-history-card .card-header,
+body.theme-yellow .btn-history {
+  background: linear-gradient(145deg, rgba(215, 165, 15, 0.92), rgba(245, 190, 35, 0.85));
+  border-color: rgba(245, 190, 35, 0.92);
+  color: #1d1d1d;
+}
+body.theme-red .history-modal .modal-header,
+body.theme-red .export-history-card .card-header,
+body.theme-red .btn-history {
+  background: linear-gradient(145deg, rgba(168, 35, 35, 0.92), rgba(235, 77, 77, 0.85));
+  border-color: rgba(235, 77, 77, 0.92);
+}
+body.theme-orange .history-modal .modal-header,
+body.theme-orange .export-history-card .card-header,
+body.theme-orange .btn-history {
+  background: linear-gradient(145deg, rgba(227, 111, 5, 0.92), rgba(249, 147, 48, 0.85));
+  border-color: rgba(249, 147, 48, 0.92);
+  color: #1d1d1d;
+}
+body.theme-blue .history-modal .modal-header,
+body.theme-blue .export-history-card .card-header,
+body.theme-blue .btn-history {
+  background: linear-gradient(145deg, rgba(20, 61, 138, 0.92), rgba(45, 95, 218, 0.85));
+  border-color: rgba(45, 95, 218, 0.92);
+}
+body.theme-green .history-modal .modal-header,
+body.theme-green .export-history-card .card-header,
+body.theme-green .btn-history {
+  background: linear-gradient(145deg, rgba(18, 109, 62, 0.92), rgba(45, 173, 103, 0.85));
+  border-color: rgba(45, 173, 103, 0.92);
+}
+.history-modal .modal-header .close {
+  color: rgba(255,255,255,0.85);
+}
+.history-modal .modal-body {
+  background: #fdfdfd;
+  padding: 1rem 1.25rem;
+}
+.history-modal .list-group-item {
+  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 0.85rem;
+  margin-bottom: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+.history-modal .list-group-item:hover {
+  background: #f5fff4;
+}
+.history-modal .list-group-item .badge {
+  background: #28a745;
+  color: #fff;
+}
+.history-modal .modal-footer {
+  border-top: none;
+  padding-top: 0.75rem;
+}
+
+/* Table scroll & sticky header */
+.table-scroll-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+}
+.table-scroll-wrapper table thead {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #f8f9fa;
+}
+.table-scroll-wrapper table thead th {
+  background: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* ===== FIX FOOTER OVERLAP ===== */
+.content-wrapper {
+  padding-bottom: 70px !important; /* space for fixed footer */
+}
+
+/* ===== MOBILE-ONLY IMPROVEMENTS (no desktop impact) ===== */
+@media (max-width: 575.98px) {
+  /* Fix wrapper height to keep footer visible */
+  .content-wrapper {
+    max-height: calc(100vh - 140px) !important;
+    overflow: hidden !important;
+    padding-bottom: 10px !important; /* adjust for mobile */
+  }
+  .content-wrapper .content {
+    max-height: calc(100vh - 200px) !important;
+    overflow-y: auto !important;
+    padding-right: 6px;
+    padding-bottom: 1rem !important; /* extra space before footer */
+  }
+  /* Stats boxes: two per row, side-by-side */
+  .col-md-3.col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 0.8rem;
+  }
+  .small-box {
+    min-height: 80px;
+    padding: 0.5rem;
+  }
+  .small-box .inner h3 {
+    font-size: 1.1rem;
+  }
+  .small-box .inner p {
+    font-size: 0.65rem;
+  }
+  .small-box .icon {
+    font-size: 2rem !important;
+  }
+  .small-box .icon i {
+    font-size: 2rem !important;
+  }
+
+  /* Table: reduce font and padding, adjust scroll height */
+  .table {
+    font-size: 0.75rem;
+  }
+  .table td, .table th {
+    padding: 0.3rem 0.2rem;
+  }
+  .table-scroll-wrapper {
+    max-height: 280px;
+  }
+  /* Card header with tools: stack */
+  .card-header .card-tools {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+  }
+  .card-header .card-tools form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    width: 100%;
+  }
+  .card-header .card-tools .input-group {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  .card-header .card-tools .input-group input,
+  .card-header .card-tools .input-group select {
+    font-size: 0.75rem;
+    height: 28px;
+  }
+  .card-header .card-tools .btn {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+  }
+  .card-header .card-tools .ml-2 {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+  .card-header .card-tools .ml-2 .btn {
+    width: 100%;
+  }
+  /* Export history card – add bottom spacing */
+  .export-history-card {
+    margin-bottom: 1.2rem !important;
+  }
+  /* Modal adjustments */
+  .modal-dialog {
+    margin: 0.5rem;
+  }
+  .modal-content {
+    border-radius: 0.5rem;
+  }
+  .modal-body {
+    padding: 0.5rem !important;
+  }
+  .modal-header {
+    padding: 0.5rem 0.6rem;
+  }
+  .modal-header .modal-title {
+    font-size: 1rem;
+  }
+  .modal-footer {
+    padding: 0.4rem;
+  }
+  .modal-footer .btn {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.5rem !important;
+  }
+  .list-group-item {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+  }
+  .list-group-item h5 {
+    font-size: 0.9rem;
+  }
+  /* Header */
+  .content-header h1 {
+    font-size: 1.2rem !important;
+  }
+  .breadcrumb {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+}

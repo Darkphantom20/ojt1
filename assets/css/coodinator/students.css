@@ -1,0 +1,115 @@
+/* Students Page Styles */
+
+.card-secondary .card-header {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: #ffffff;
+  border-bottom: 2px solid #1b2838;
+}
+
+body.theme-purple .card-secondary .card-header {
+  background: linear-gradient(135deg, #5a2f8d, #8a42c9);
+  border-bottom: 2px solid #7f3fb4;
+}
+
+body.theme-yellow .card-secondary .card-header {
+  background: linear-gradient(135deg, #c9920f, #f1c835);
+  border-bottom: 2px solid #d8a90f;
+  color: #1d1d1d;
+}
+
+body.theme-red .card-secondary .card-header {
+  background: linear-gradient(135deg, #ae1f1f, #e34141);
+  border-bottom: 2px solid #cc2b2b;
+}
+
+body.theme-orange .card-secondary .card-header {
+  background: linear-gradient(135deg, #d36f1f, #fba534);
+  border-bottom: 2px solid #de7b1e;
+  color: #1d1d1d;
+}
+
+body.theme-blue .card-secondary .card-header {
+  background: linear-gradient(135deg, #1555a8, #2b6fd5);
+  border-bottom: 2px solid #1f5dbe;
+}
+
+body.theme-green .card-secondary .card-header {
+  background: linear-gradient(135deg, #138049, #2cae6d);
+  border-bottom: 2px solid #219c61;
+}
+
+#student-progress-table {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #dfe6ed;
+  width: 100%;
+  min-width: 700px;
+}
+
+#student-progress-table th {
+  background: rgba(44, 62, 80, 0.12);
+  color: #1c1c1c;
+  border-bottom: 1px solid #aab7c4;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+#student-progress-table td {
+  color: #212121;
+  vertical-align: middle;
+}
+
+#student-progress-table tbody tr:hover {
+  background: #e9f2fb;
+}
+
+.text-muted {
+  color: #5f6e7d !important;
+}
+
+.badge-info {
+  background: #286090;
+  color: #fff;
+}
+
+.badge-success,
+.badge-warning,
+.badge-danger {
+  font-weight: 600;
+}
+
+.table-responsive {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 575.98px) {
+  #student-progress-table {
+    min-width: 600px;
+    font-size: 0.85rem;
+  }
+
+  #student-progress-table th,
+  #student-progress-table td {
+    padding: 0.3rem 0.4rem;
+    white-space: nowrap;
+  }
+
+  #student-progress-table td:nth-child(4) {
+    min-width: 140px;
+  }
+
+  #student-progress-table .img-circle,
+  #student-progress-table .bg-secondary {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 0.8rem !important;
+  }
+
+  .enhanced-badge {
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+
+  .d-block.mt-1.small {
+    display: none !important;
+  }
+}

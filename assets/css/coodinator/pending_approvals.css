@@ -1,0 +1,361 @@
+/* Pending Approvals Page Styles */
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-color: #5a67d8;
+  --success-color: #22c55e;
+  --danger-color: #ef4444;
+  --card-shadow: 0 6px 24px rgba(17, 47, 90, 0.08);
+  --card-hover-shadow: 0 16px 48px rgba(102, 126, 234, 0.15);
+  --border-radius: 16px;
+}
+
+body {
+  background-color: #f4f6fb;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.content-wrapper {
+  padding: 24px 28px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ----- Back Button ----- */
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #4f46e5;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 16px 8px 12px;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+  margin-bottom: 24px;
+  border: 1px solid #e8edf7;
+}
+
+.back-button:hover {
+  background: #f0f4ff;
+  color: #4338ca;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.12);
+}
+
+/* ----- Page Header ----- */
+.page-header {
+  background: var(--primary-gradient);
+  color: white;
+  padding: 28px 32px;
+  border-radius: var(--border-radius);
+  margin-bottom: 28px;
+  box-shadow: 0 8px 28px rgba(102, 126, 234, 0.25);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.page-header .subtitle {
+  opacity: 0.9;
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+/* ----- Stats Row ----- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: white;
+  padding: 18px 22px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  border-left: 4px solid var(--primary-color);
+  transition: transform 0.15s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-card .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.stat-card .stat-label {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.stat-card.approved {
+  border-left-color: var(--success-color);
+}
+
+.stat-card.approved .stat-number {
+  color: var(--success-color);
+}
+
+/* ----- Students Container ----- */
+.students-container {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+/* ----- Header inside container ----- */
+.students-header {
+  background: linear-gradient(90deg, #5a67d8 0%, #7f5af0 100%);
+  padding: 22px 28px;
+  color: white;
+}
+
+.students-header h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.students-header p {
+  margin: 6px 0 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
+}
+
+/* ----- Controls (search + summary) ----- */
+.students-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px 0;
+}
+
+.search-box {
+  flex: 1 1 340px;
+  min-width: 240px;
+}
+
+.search-box .input-group-text {
+  background: #f8fafc;
+  border: 1px solid #dfe3eb;
+  border-right: none;
+  color: #667085;
+  border-radius: 999px 0 0 999px;
+}
+
+.search-box .form-control {
+  border-radius: 0 999px 999px 0;
+  border: 1px solid #dfe3eb;
+  border-left: none;
+  padding: 10px 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.search-box .form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.15);
+}
+
+.summary-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #f1f4fd;
+  border-radius: 999px;
+  color: #1e293b;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.summary-pill i {
+  color: var(--primary-color);
+}
+
+/* ----- Student List (grid) ----- */
+.student-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+  padding: 22px 28px 28px;
+}
+
+.student-item {
+  background: #ffffff;
+  border: 1px solid #edf2f7;
+  border-radius: 14px;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+
+.student-item:hover {
+  border-color: #c7d2fe;
+  box-shadow: var(--card-hover-shadow);
+  transform: translateY(-3px);
+}
+
+.student-card-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.student-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.student-name {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #0f172a;
+  margin: 0;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f5ff;
+  color: #34418c;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+.student-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.student-meta span {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta-label {
+  color: #94a3b8;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.meta-value {
+  color: #0f172a;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.student-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.student-note {
+  color: #64748b;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-buttons .btn {
+  flex: 1;
+  min-width: 100px;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-approve {
+  background: var(--success-color);
+  color: white;
+}
+
+.btn-approve:hover {
+  background: #16a34a;
+  transform: scale(1.02);
+}
+
+.btn-reject {
+  background: var(--danger-color);
+  color: white;
+}
+
+.btn-reject:hover {
+  background: #dc2626;
+  transform: scale(1.02);
+}
+
+.btn-processing {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* ----- Empty State ----- */
+.empty-state {
+  padding: 60px 28px;
+  text-align: center;
+  color: #475569;
+}
+
+.empty-state i {
+  font-size: 3.2rem;
+  color: #c7d2fe;
+  margin-bottom: 16px;
+}
+
+.empty-state h4 {
+  color: #0f172a;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  max-width: 460px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
