@@ -479,116 +479,22 @@
   }
 
   function initDocumentaryPage() {
-    var openBtn = $('#open-daily-report-modal');
-    if (!openBtn.length) {
+    var deleteButtons = $('.delete-entry-btn');
+    if (!deleteButtons.length) {
       return;
     }
 
-    function showReportStep(step) {
-      $('#dailyReportStep1, #dailyReportStep2, #dailyReportStep3').hide();
-      $('#dailyReportNext, #dailyReportPreview, #dailyReportSubmit').hide();
-      $('#dailyReportBack').toggle(step !== 1);
-      if (step === 1) {
-        $('#dailyReportStep1').show();
-        $('#dailyReportNext').show();
-      } else if (step === 2) {
-        $('#dailyReportStep2').show();
-        $('#dailyReportPreview').show();
-      } else {
-        $('#dailyReportStep3').show();
-        $('#dailyReportSubmit').show();
-      }
+    var entryDateInput = document.querySelector('[name="entry_date"]');
+    if (!entryDateInput) {
+      return;
     }
 
-    function escapeHtml(text) {
-      return $('<div>').text(text).html();
-    }
-
-    function renderReportPreview() {
-      var note = $('#report_note').val().trim();
-      var files = document.getElementById('report_images').files;
-      var previewImages = $('#previewImages');
-      previewImages.empty();
-
-      if (files && files.length > 0) {
-        Array.from(files).forEach(function(file) {
-          if (!file.type.startsWith('image/')) {
-            return;
-          }
-          var reader = new FileReader();
-          reader.onload = function(e) {
-            var img = $('<img>');
-            img.attr('src', e.target.result);
-            previewImages.append(img);
-          };
-          reader.readAsDataURL(file);
-        });
-      }
-
-      var sanitized = note ? escapeHtml(note).replace(/\n/g, '<br>') : 'No report details entered.';
-      $('#previewNote').html(sanitized);
-    }
-
-    openBtn.on('click', function() {
-      $('#dailyReportModal').modal('show');
-      $('#dailyReportStep1').show();
-      $('#dailyReportStep2').hide();
-      $('#dailyReportNext').show();
-      $('#dailyReportSubmit').hide();
-      $('#dailyReportBack').hide();
-      $('#report_images').val('');
-      $('#report_note').val('');
-      $('#reportImagesError').addClass('d-none').text('');
-      $('#reportNoteError').addClass('d-none').text('');
-    });
-
-    $('#dailyReportNext').on('click', function() {
-      var fileInput = document.getElementById('report_images');
-      var files = fileInput.files;
-      var fileCount = files ? files.length : 0;
-      if (fileCount < 1 || fileCount > 3) {
-        $('#reportImagesError').removeClass('d-none').text('Please select between 1 and 3 pictures.');
-        return;
-      }
-      $('#reportImagesError').addClass('d-none').text('');
-      showReportStep(2);
-    });
-
-    $('#dailyReportPreview').on('click', function() {
-      var note = $('#report_note').val().trim();
-      if (!note) {
-        $('#reportNoteError').removeClass('d-none').text('Please enter the report details before previewing.');
-        return;
-      }
-      $('#reportNoteError').addClass('d-none').text('');
-      renderReportPreview();
-      showReportStep(3);
-    });
-
-    $('#dailyReportBack').on('click', function() {
-      var isPreviewVisible = $('#dailyReportStep3').is(':visible');
-      if (isPreviewVisible) {
-        showReportStep(2);
-      } else {
-        showReportStep(1);
-      }
-    });
-
-    $('#dailyReportForm').on('submit', function() {
-      var note = $('#report_note').val().trim();
-      if (!note) {
-        $('#reportNoteError').removeClass('d-none').text('Please enter the report details before submitting.');
-        return false;
-      }
-      return true;
-    });
-
-    $('.delete-entry-btn').on('click', function() {
+    deleteButtons.on('click', function() {
       var entryId = $(this).data('id');
       if (confirm('Are you sure you want to delete this entry? This action cannot be undone.')) {
         var form = $('<form method="post">');
         form.append('<input type="hidden" name="delete_id" value="' + entryId + '">');
-        form.append('<input type="hidden" name="entry_date" value="' + document.querySelector('[name="entry_date"]').value + '">');
+        form.append('<input type="hidden" name="entry_date" value="' + entryDateInput.value + '">');
         $('body').append(form);
         form.submit();
       }

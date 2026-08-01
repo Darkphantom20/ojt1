@@ -15,6 +15,19 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 $(document).ready(function () {
+  var modal = $('#dailyReportModal');
+  var form = $('#dailyReportForm');
+  var nextBtn = $('#dailyReportNext');
+  var backBtn = $('#dailyReportBack');
+  var submitBtn = $('#dailyReportSubmit');
+  var stepLabel = $('#dailyReportStepLabel');
+  var progressBar = $('#dailyReportProgress');
+  var openBtn = $('#open-daily-report-modal');
+
+  if (!modal.length || !form.length || !nextBtn.length || !backBtn.length || !submitBtn.length || !stepLabel.length || !progressBar.length || !openBtn.length) {
+    return;
+  }
+
   var config = window.studentDocumentaryConfig || {};
 
   $('.preloader').fadeOut();
@@ -31,122 +44,60 @@ $(document).ready(function () {
   $('.delete-entry-btn').on('click', function () {
     var entryId = $(this).data('id');
     if (confirm('Are you sure you want to delete this entry? This action cannot be undone.')) {
-      var form = $('<form method="post">');
-      form.append('<input type="hidden" name="delete_id" value="' + entryId + '">');
-      form.append('<input type="hidden" name="entry_date" value="' + (config.selectedDate || '') + '">');
-      $('body').append(form);
-      form.submit();
+      var deleteForm = $('<form method="post">');
+      deleteForm.append('<input type="hidden" name="delete_id" value="' + entryId + '">');
+      deleteForm.append('<input type="hidden" name="entry_date" value="' + (config.selectedDate || '') + '">');
+      $('body').append(deleteForm);
+      deleteForm.submit();
     }
   });
 
-  $('#open-daily-report-modal').on('click', function () {
-    $('#dailyReportModal').modal('show');
-    $('#dailyReportStep1').show();
-    $('#dailyReportStep2').hide();
-    $('#dailyReportNext').show();
-    $('#dailyReportSubmit').hide();
-    $('#dailyReportBack').hide();
-    $('#report_images').val('');
-    $('#report_note').val('');
-    $('#reportImagesError').addClass('d-none').text('');
-    $('#reportNoteError').addClass('d-none').text('');
-  });
+  var currentStep = 1;
+  var totalSteps = 8;
 
-  function showReportStep(step) {
-    $('#dailyReportStep1, #dailyReportStep2, #dailyReportStep3').hide();
-    $('#dailyReportNext, #dailyReportPreview, #dailyReportSubmit').hide();
-    $('#dailyReportBack').toggle(step !== 1);
-
-    if (step === 1) {
-      $('#dailyReportStep1').show();
-      $('#dailyReportNext').show();
-    } else if (step === 2) {
-      $('#dailyReportStep2').show();
-      $('#dailyReportPreview').show();
-    } else {
-      $('#dailyReportStep3').show();
-      $('#dailyReportSubmit').show();
-    }
+  function updateDailyReportWizard() {
+    $('.wizard-step').hide();
+    $('#dailyReportStep' + currentStep).show();
+    stepLabel.text('Step ' + currentStep + ' of ' + totalSteps);
+    progressBar.css('width', (currentStep / totalSteps * 100) + '%');
+    backBtn.toggle(currentStep > 1);
+    nextBtn.toggle(currentStep < totalSteps);
+    submitBtn.toggle(currentStep === totalSteps);
   }
 
-  var previewDate = config.selectedDate || config.today || '';
-  var previewStudentId = config.studentId || '';
-  var previewDepartment = config.studentDepartment || 'Not set';
-
-  function escapeHtml(text) {
-    return $('<div>').text(text).html();
+  function showWizardMessage(message) {
+    $('#dailyReportValidationMessage').text(message).show();
   }
 
-  function renderReportPreview() {
-    var note = $('#report_note').val().trim();
-    var fileInput = document.getElementById('report_images');
-    var files = fileInput ? fileInput.files : [];
-    var previewImages = $('#previewImages');
-
-    $('#previewHeaderDate').text('Date: ' + previewDate);
-    $('#previewHeaderStudent').text(' | Student ID: ' + previewStudentId);
-    $('#previewHeaderDepartment').text(' | Department: ' + previewDepartment);
-
-    previewImages.empty();
-    if (files && files.length > 0) {
-      Array.from(files).forEach(function (file) {
-        if (!file.type.startsWith('image/')) {
-          return;
-        }
-        var reader = new FileReader();
-        reader.onload = function (e) {
-          var img = $('<img>');
-          img.attr('src', e.target.result);
-          previewImages.append(img);
-        };
-        reader.readAsDataURL(file);
-      });
-    }
-
-    var sanitized = note ? escapeHtml(note).replace(/\n/g, '<br>') : 'No report details entered.';
-    $('#previewNote').html(sanitized);
+  function clearWizardMessage() {
+    $('#dailyReportValidationMessage').text('').hide();
   }
 
-  $('#dailyReportNext').on('click', function () {
-    var fileInput = document.getElementById('report_images');
-    var files = fileInput ? fileInput.files : [];
-    var fileCount = files ? files.length : 0;
-
-    if (fileCount < 1 || fileCount > 3) {
-      $('#reportImagesError').removeClass('d-none').text('Please select between 1 and 3 pictures.');
-      return;
-    }
-    $('#reportImagesError').addClass('d-none').text('');
-    showReportStep(2);
+  openBtn.on('click', function () {
+    currentStep = 1;
+    clearWizardMessage();
+    updateDailyReportWizard();
+    modal.modal('show');
   });
 
-  $('#dailyReportPreview').on('click', function () {
-    var note = $('#report_note').val().trim();
-    if (!note) {
-      $('#reportNoteError').removeClass('d-none').text('Please enter the report details before previewing.');
-      return;
-    }
-    $('#reportNoteError').addClass('d-none').text('');
-    renderReportPreview();
-    showReportStep(3);
-  });
-
-  $('#dailyReportBack').on('click', function () {
-    var isPreviewVisible = $('#dailyReportStep3').is(':visible');
-    if (isPreviewVisible) {
-      showReportStep(2);
-    } else {
-      showReportStep(1);
+  backBtn.on('click', function () {
+    if (currentStep > 1) {
+      currentStep -= 1;
+      clearWizardMessage();
+      updateDailyReportWizard();
     }
   });
 
-  $('#dailyReportForm').on('submit', function () {
-    var note = $('#report_note').val().trim();
-    if (!note) {
-      $('#reportNoteError').removeClass('d-none').text('Please enter the report details before submitting.');
-      return false;
+  nextBtn.on('click', function () {
+    clearWizardMessage();
+    if (currentStep < totalSteps) {
+      currentStep += 1;
     }
-    $('#reportNoteError').addClass('d-none').text('');
+    updateDailyReportWizard();
+  });
+
+  form.on('submit', function () {
+    clearWizardMessage();
     return true;
   });
 });

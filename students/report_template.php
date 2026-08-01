@@ -658,8 +658,7 @@ if (!function_exists('renderReportTemplate')) {
                                 
                                 <!-- Entry Content (Text) -->
                                 <div class="entry-content">
-                                    <span class="note-label">📝 Description</span>
-                                    <div class="note-text"><?= nl2br(htmlspecialchars($noteContent)) ?></div>
+                                    <?= renderNarrativeNoteHtml($noteContent) ?>
                                 </div>
                                 
                                 <!-- Images at the Bottom -->
@@ -773,10 +772,62 @@ if (!function_exists('getImageDataUri')) {
  */
 if (!function_exists('getEntryImagePaths')) {
     function getEntryImagePaths(array $entry): array {
-        if (empty($entry['images']) || !is_array($entry['images'])) {
-            return [];
+        $paths = [];
+
+        if (!empty($entry['image_paths'])) {
+            $decoded = json_decode($entry['image_paths'], true);
+            if (is_array($decoded)) {
+                foreach ($decoded as $path) {
+                    if (!empty($path)) {
+                        $paths[] = $path;
+                    }
+                }
+            }
         }
-        return $entry['images'];
+
+        if (empty($paths) && !empty($entry['image_path'])) {
+            $paths[] = $entry['image_path'];
+        }
+
+        return $paths;
+    }
+}
+
+if (!function_exists('renderNarrativeNoteHtml')) {
+    function renderNarrativeNoteHtml(string $note): string {
+        if (trim($note) === '') {
+            return '<span class="note-label">📝 Description</span><div class="note-text">No description provided.</div>';
+        }
+
+        $decoded = json_decode($note, true);
+        if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+            $titles = [
+                'front_page' => 'Front Page',
+                'table_of_contents' => 'Table of Contents',
+                'introduction' => 'Introduction',
+                'organization_analysis' => 'Organization / Company Analysis',
+                'tasks_duties' => 'Tasks and Duties',
+                'case_analysis' => 'Case Analysis',
+                'reflections' => 'Reflections',
+                'appendices' => 'Appendices',
+                'report_note' => 'Daily Report Details'
+            ];
+
+            $html = '<span class="note-label">📝 Description</span>';
+            foreach ($titles as $key => $label) {
+                if (!empty($decoded[$key])) {
+                    $sectionText = htmlspecialchars(trim($decoded[$key]));
+                    $sectionText = nl2br($sectionText);
+                    $html .= '<div class="note-section"><strong>' . htmlspecialchars($label) . ':</strong><br>' . $sectionText . '</div>';
+                }
+            }
+
+            if ($html !== '<span class="note-label">📝 Description</span>') {
+                return $html;
+            }
+        }
+
+        return '<span class="note-label">📝 Description</span><div class="note-text">' . nl2br(htmlspecialchars($note)) . '</div>';
     }
 }
 ?>
