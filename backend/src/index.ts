@@ -12,6 +12,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 5000;
 
+// Frontend URLs for CORS
 const frontendUrls = [
   process.env.FRONTEND_URL || 'http://localhost:3000',
   'http://127.0.0.1:3000',
