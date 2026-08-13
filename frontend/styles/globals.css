@@ -501,6 +501,46 @@ button.primary:active {
   }
 }
 
+/* Dashboard animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-content {
+  animation: fadeIn 0.3s ease-in;
+}
+
+.nav-button-active {
+  animation: slideDown 0.2s ease-out;
+}
+
 .hidden-note {
   margin-top: 1.5rem;
   color: rgba(226, 232, 240, 0.85);

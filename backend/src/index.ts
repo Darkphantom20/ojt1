@@ -1,13 +1,14 @@
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
 import authRoutes from './routes/auth';
 import studentRoutes from './routes/student';
 import adminRoutes from './routes/admin';
 import coordinatorRoutes from './routes/coordinator';
 import { ensureTestStudent } from './seed';
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const app = express();
 const port = process.env.PORT || 5000;

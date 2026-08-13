@@ -2,7 +2,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
 
-const envPath = path.resolve(__dirname, '../../.env');
+const envPath = path.resolve(__dirname, '../.env');
 dotenv.config({ path: envPath });
 
 const connectionString = process.env.DATABASE_URL;
