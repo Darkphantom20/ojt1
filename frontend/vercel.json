@@ -7,11 +7,14 @@
     }
   ],
   "env": {
-    "NEXT_PUBLIC_API_URL": "https://your-api-host.example.com"
+    "NEXT_PUBLIC_API_URL": "@next_public_api_url"
   },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_API_URL": "https://your-api-host.example.com"
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "regions": ["sin1", "sfo1"],
+  "functions": {
+    "pages/**/*": {
+      "maxDuration": 60
     }
   }
 }
