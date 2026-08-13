@@ -15,6 +15,11 @@ const port = process.env.PORT || 5000;
 const frontendUrls = [
   'http://localhost:3000',
   'http://localhost:3001',
+  ...(process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : []),
+  ...((process.env.FRONTEND_URLS || '')
+    .split(',')
+    .map((url) => url.trim())
+    .filter(Boolean)),
   'https://ojt1.vercel.app',
   'https://ojt1monitoringsystem.vercel.app',
 ];
@@ -38,6 +43,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api/students', studentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/coordinator', coordinatorRoutes);
+
+app.get('/', (_req: Request, res: Response) => {
+  res.json({ status: 'ok', service: 'ojt-backend' });
+});
 
 app.get('/api/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok' });
