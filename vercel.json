@@ -1,30 +1,3 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "frontend/next.config.js",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "backend/dist/index.js",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "backend/dist/index.js",
-      "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
-    },
-    {
-      "src": "/(.*)",
-      "dest": "frontend"
-    }
-  ],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "@next_public_api_url",
-    "DATABASE_URL": "@database_url",
-    "JWT_SECRET": "@jwt_secret",
-    "MAIL_PASSWORD": "@mail_password"
-  }
+  "version": 2
 }
