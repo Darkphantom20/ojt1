@@ -2,11 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 let app;
 if (process.env.NODE_ENV === 'production') {
-    // Vercel runs the compiled bootstrap from `dist/index.js` after TypeScript build.
-    // That file sits next to `dist/src/index.js`, so it must import the built source
-    // entry from `./src/index`, not a non-existent root-level route bundle.
+    // Vercel runs `dist/api/index.js` from the compiled output.
+    // From `dist/api/`, the path to `dist/src/index.js` is `../src/index`.
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    app = require('./src/index').default;
+    app = require('../src/index').default;
 }
 else {
     // Local development uses the TypeScript source directly.
