@@ -1,15 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
 let app;
-if (process.env.NODE_ENV === 'production') {
-    // Vercel runs `dist/api/index.js` from the compiled output.
-    // From `dist/api/`, the path to `dist/src/index.js` is `../src/index`.
+try {
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    app = require('../src/index').default;
+    const mainApp = require(path_1.default.join(__dirname, '../src/index'));
+    app = mainApp.default || mainApp;
 }
-else {
-    // Local development uses the TypeScript source directly.
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    app = require('../src/index').default;
+catch (error) {
+    console.error('Failed to load main app:', error);
+    throw error;
 }
 exports.default = app;

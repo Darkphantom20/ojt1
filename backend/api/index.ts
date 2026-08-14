@@ -1,15 +1,16 @@
+import path from 'path';
+
 let app: any;
 
-if (process.env.NODE_ENV === 'production') {
-  // Vercel runs `dist/api/index.js` from the compiled output.
-  // From `dist/api/`, the path to `dist/src/index.js` is `../src/index`.
+try {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  app = require('../src/index').default;
-} else {
-  // Local development uses the TypeScript source directly.
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
-  app = require('../src/index').default;
+  const mainApp = require(path.join(__dirname, '../src/index'));
+  app = mainApp.default || mainApp;
+} catch (error) {
+  console.error('Failed to load main app:', error);
+  throw error;
 }
 
 export default app;
+
 

@@ -55,7 +55,8 @@ app.get('/api/health', (_req: Request, res: Response) => {
 
 export default app;
 
-if (require.main === module && process.env.NODE_ENV !== 'production') {
+// Only start server in development mode (when not deployed to Vercel)
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
   (async () => {
     try {
       await ensureTestStudent();
