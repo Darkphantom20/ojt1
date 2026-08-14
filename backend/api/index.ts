@@ -1,14 +1,13 @@
 let app: any;
 
 if (process.env.NODE_ENV === 'production') {
-  // In Vercel production the compiled files live under `dist/`.
-  // From `dist/api/index.js` the compiled server entry is at `../index.js`.
-  // Require the built entry so runtime loads the compiled JS, not TS sources.
-  // Use a relative path that matches the compiled layout.
+  // Vercel runs the compiled bootstrap from `dist/index.js` after TypeScript build.
+  // That file sits next to `dist/src/index.js`, so it must import the built source
+  // entry from `./src/index`, not a non-existent root-level route bundle.
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  app = require('../index').default;
+  app = require('./src/index').default;
 } else {
-  // Local development: load TypeScript source for ts-node-dev workflows.
+  // Local development uses the TypeScript source directly.
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   app = require('../src/index').default;
 }
