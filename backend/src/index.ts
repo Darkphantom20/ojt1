@@ -23,6 +23,7 @@ const frontendUrls = [
     .filter(Boolean)),
   'https://ojt1.vercel.app',
   'https://ojt1monitoringsystem.vercel.app',
+  'https://ojt-monitoringsystem.vercel.app',
 ];
 
 app.use(
